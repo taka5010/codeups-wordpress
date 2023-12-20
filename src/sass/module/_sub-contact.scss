@@ -1,0 +1,22 @@
+@use "global" as *;
+
+.sub-contact {
+
+}
+
+.sub-contact__form {
+    width: 100%;
+    @include mq(md) {
+		max-width: rem(700);
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+        padding-top: rem(9);
+        
+	}
+
+}
+.sub-contact__form input {
+    max-width: 100%;
+}
+

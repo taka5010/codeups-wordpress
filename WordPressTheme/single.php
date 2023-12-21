@@ -2,8 +2,8 @@
 <main>
     <div class="sub-mv">
       <picture>
-        <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv_campaign-sp.jpg" media="(max-width: 769px)"/>
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv_campaign-pc.jpg" alt="">
+        <source srcset="./assets/images/common/mv_campaign-sp.jpg" media="(max-width: 769px)"  />
+        <img src="./assets/images/common/mv_campaign-pc.jpg" alt="">
       </picture>
       <div class="sub-mv__text">
         <h1 class="sub-mv__maintitle">blog</h1>
@@ -11,49 +11,63 @@
     </div>
 
     <?php get_template_part('parts/breadcrumb') ?>
+    
+    <section class="sub-content sub-blog">
+      <div class="sub-blog__inner inner">
+        <div class="sub-blog__wrapper">
+          <div class="sub-blog__article blog-article">
+            <?php if (have_posts()):while (have_posts()) :the_post(); ?>
+            <time class="blog-card__category" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?></time>
+              <h1 class="blog-article__header"><?php the_title(); ?></h1>
+              <figure class="blog-article__img">
+                  <?php if (get_the_post_thumbnail()): ?>
+                      <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                  <?php else: ?>
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-img.jpg" alt="noimage">
+                  <?php endif; ?>
+              </figure>
+              <div class="blog-article__text">
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+              </div>
+              <figure class="blog-article__img">
+                <img src="./assets/images/common/blog_img-1.jpg" alt="サンゴの画像">
+              </figure>
+              <div class="blog-article__text">
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+              </div>
+              <div class="blog-article__items">
+                <ul class="blog-article__lists">
+                  <li>リスト１</li>
+                  <li>リスト２</li>
+                  <li>リスト３</li>
+                </ul>
+              </div>
+              <div class="blog-article__text">
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+              </div>
+              <?php endwhile;endif; ?>
+              <div class="sub-blog__pagenation--detail pagnation wp-pagenavi">
+                  <?php 
+                  $prev = get_previous_post();
+                  if ($prev): ?>
+                  <a class="previouspostslink" rel="prev" href="<?php echo esc_url(get_permalink($prev->ID)); ?>"><</a>
+                  <?php endif; ?>
 
-    <section class="sub-content sub-archive">
-      <div class="sub-archive__inner inner">
-        <div class="sub-archive__wrapper">
-          <div class="sub-archive__items sub-blog-cards">
-<!-- 記事開始 -->
-            <?php if (have_posts()):
-              while (have_posts()) :
-                the_post(); ?>
-              <article class="blog-cards__item blog-card">
-                <a href="<?php the_permalink(); ?>">
-                  <figure class="blog-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog_img-1.jpg" alt="サンゴの画像">
-                  </figure>
-                  <div class="blog-card__body">
-                    <div class="blog-card__header">
-                      <time class="blog-card__category" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?></time>
-                      <h3 class="blog-card__title"><?php the_title(); ?></h3>
-                    </div>
-                    <div class="blog-card__info">
-                      <p class="blog-card__text">
-                      <?php the_content(); ?>
-                      </p>
-                    </div>
-                  </div>             
-                </a>
-              </article>
-            <?php endwhile;endif; ?>
-
-            
-<!-- 記事終了 -->
-          </div>
-          <div class="sub-archive__pagenation pagnation wp-pagenavi">
-          <?php wp_pagenavi(); ?>
-          </div>
+                  <?php 
+                  $next = get_next_post();
+                  if ($next): ?>
+                  <a class="nextpostslink" rel="next" href="<?php echo esc_url(get_permalink($next->ID)); ?>">></a>
+                  <?php endif; ?>
+              </div>
+            </div>
         </div>
-        <div class="sub-archive__sideber sideber">
+        <div class="sub-blog__sideber sideber">
           <div class="sideber__contents">
             <h2 class="sideber__header">人気記事</h2>
             <div class="sideber__articles articles-cards">
               <article class="articles-cards__item article-card">
                 <div class="article-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog_img-4.jpg" alt="">
+                  <img src="./assets/images/common/blog_img-4.jpg" alt="">
                 </div>
                 <div class="article-card__body">
                   <date class="article-card__date">2023/11/17</date>
@@ -62,7 +76,7 @@
               </article>
               <article class="articles-cards__item article-card">
                 <div class="article-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog_img-2.jpg" alt="">
+                  <img src="./assets/images/common/blog_img-2.jpg" alt="">
                 </div>
                 <div class="article-card__body">
                   <date class="article-card__date">2023/11/17</date>
@@ -71,7 +85,7 @@
               </article>
               <article class="articles-cards__item article-card">
                 <div class="article-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog_img-3.jpg" alt="">
+                  <img src="./assets/images/common/blog_img-3.jpg" alt="">
                 </div>
                 <div class="article-card__body">
                   <date class="article-card__date">2023/11/17</date>
@@ -85,7 +99,7 @@
             <div class="sideber__reputations reputations-cards">
               <div class="reputations-cards__item reputation-card">
                 <div class="reputation-card__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/reputation_campaign.jpg" alt="">
+                  <img src="./assets/images/common/reputation_campaign.jpg" alt="">
                 </div>
                 <div class="reputation-card__body">
                   <span class="reputation-card__category">30代(カップル)</span>
@@ -103,7 +117,7 @@
               <div class="campaign-cards__items campaign-cards">
                 <div class="campaign-cards__item campaign-card">
                   <figure class="campaign-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign_1.jpg" alt="魚群の画像">
+                    <img src="./assets/images/common/campaign_1.jpg" alt="魚群の画像">
                   </figure>
                   <div class="campaign-card__body campaign-card__body--sideber">
                     <div class="campaign-card__header campaign-card__header--sideber">
@@ -120,7 +134,7 @@
                 </div>
                 <div class="campaign-cards__item campaign-card">
                   <figure class="campaign-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign_2.jpg" alt="魚群の画像">
+                    <img src="./assets/images/common/campaign_2.jpg" alt="魚群の画像">
                   </figure>
                   <div class="campaign-card__body campaign-card__body--sideber">
                     <div class="campaign-card__header campaign-card__header--sideber">
@@ -162,5 +176,4 @@
         </div>
       </div>
     </section>
-
 <?php get_footer(); ?>

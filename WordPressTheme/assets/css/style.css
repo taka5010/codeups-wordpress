@@ -2727,6 +2727,14 @@ textarea {
 	margin-top: 4.875rem;
 }
 
+.sub-archive__pagenation .previouspostslink {
+	margin-right: 2.5rem;
+}
+
+.sub-archive__pagenation .nextpostslink {
+	margin-left: 2.5rem;
+}
+
 .sub-archive__pagenation--detail {
 	margin-left: auto;
 	margin-right: auto;

@@ -63,6 +63,20 @@
         margin-top: rem(92);
     }
 }
+
+.sub-archive__pagenation .previouspostslink {
+    margin-right: rem(40);
+    // @include mq(md) {
+    //     margin-right: rem(40);
+    // }
+}
+.sub-archive__pagenation .nextpostslink {
+    margin-left: rem(40);
+    // @include mq(md) {
+    //     margin-left: rem(40);
+    // }
+}
+
 .sub-archive__pagenation--detail  {
     margin-top: rem(40);
     margin-left: auto;

@@ -10,11 +10,9 @@
         <h1 class="sub-mv__maintitle">about us</h1>
       </div>
     </div>
-    <div class="breadcrumb">
-      <div class="breadcrumb__inner inner">
-        <span>TOP > 私たちについて</span>
-      </div>
-    </div>
+    
+    <?php get_template_part('parts/breadcrumb') ?>
+
     <div class="sub-content sub-about">
       <div class="sub-about__inner inner">
         <div class="sub-about__wrapper">
